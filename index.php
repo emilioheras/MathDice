@@ -72,14 +72,14 @@
         dibujarDados();
      ?>
      
-     <!-- Dado aleatorio -->
+     <!-- Dados aleatorios -->
       <div class="container">
         <div class="row">
-          <div class='col-xs-2 dice'>
+          <div class='col-sm-2 dice'>
           <h5>Dado aleatorio</h5>
           <img src='img/Dice-<?php echo generarNumAleatorio(); ?>.png' class='img-responsive dice'></img>
           </div>
-          <div class='col-xs-2 dice'>
+          <div class='col-sm-2 dice'>
           <h5>Dado aleatorio</h5>
           <img src='img/Dice-<?php echo generarNumAleatorio(); ?>.png' class='img-responsive dice'></img>
           </div>

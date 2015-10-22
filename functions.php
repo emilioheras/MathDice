@@ -18,8 +18,9 @@
 				 							 	                      
 				 							 	                      
 				 							 	                      
-	// Funciones:			 							 	                      
-				 							 	                      
+	// Funciones:
+	
+	//La función construye un submenú dentro de un botón del menú superior de index.php.			 							 	                      
 	function escribeSubmenu ($menu, $string1, $string2, $language){
 	  
 	  foreach ($menu as $clave => $valor) {
