@@ -1,5 +1,4 @@
 <?php
-
   include "functions.php";
   include "dace.php";
 ?>
@@ -26,15 +25,15 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span> 
             </button>
-            <a class="navbar-brand" href="#"><?php print_r($menu['title'][$language])?></a>
+            <a class="navbar-brand" href="#"><?php echo $menu['title'][$language];?></a>
           </div>
           <div class="collapse navbar-collapse" id="myNavbar">
 			    <!--Inicio de los botones del menú superior-->
             <ul class="nav navbar-nav">
-              <li class="active"><a href="#"><?php print_r($menu['general'][$language])?></a></li>
+              <li class="active"><a href="#"><?php echo $menu['general'][$language];?></a></li>
               <!--Primer menú desplegable-->
               <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#"><?php print_r($menu['game'][$language])?>
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#"><?php echo $menu['game'][$language];?>
                 <span class="caret"></span></a>
                 <ul class="dropdown-menu">
                   
@@ -46,7 +45,7 @@
               </li>
 			         <!--Segundo menú desplegable-->
                <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#"><?php print_r($menu['help'][$language])?>
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#"><?php echo $menu['help'][$language];?>
                 <span class="caret"></span></a>
                 <ul class="dropdown-menu">
                   
@@ -66,25 +65,50 @@
         </div>
      </nav>
      </div>
-     
-     <!-- Posición de los dados -->
-     <?php
-        dibujarDados();
-     ?>
-     
-     <!-- Dados aleatorios -->
+
+     <!-- Contenedor de dados y formulario -->
       <div class="container">
         <div class="row">
-          <div class='col-sm-2 dice'>
-          <h5>Dado aleatorio</h5>
-          <img src='img/Dice-<?php echo generarNumAleatorio(); ?>.png' class='img-responsive dice'></img>
+          <!-- Dado aleatorio 1 -->
+          <div class='col-sm-3 col-md-2 col-md-offset-2 dice'>
+            <h3>Dado 1</h3>
+            <img src='img/Dice-<?php $dado1=generarNumAleatorio(); echo $dado1; ?>.png' class='img-responsive dice'></img>
           </div>
-          <div class='col-sm-2 dice'>
-          <h5>Dado aleatorio</h5>
-          <img src='img/Dice-<?php echo generarNumAleatorio(); ?>.png' class='img-responsive dice'></img>
+          <!-- Dado aleatorio 2 -->
+          <div class='col-sm-3 col-md-2 dice'>
+            <h3>Dado 2</h3>
+            <img src='img/Dice-<?php $dado2=generarNumAleatorio(); echo $dado2; ?>.png' class='img-responsive dice'></img>
+          </div>
+          
+          <!-- Formulario de los dados -->
+          <div class='col-xs-7 col-sm-3 col-sm-offset-1 col-md-2 col-md-offset-1'>
+            <form action="showResult.php" method="post">
+              <div class="form-group">
+                <label for="dado1">Dado 1</label>
+                <input type="text" class="form-control input-lg" name="dado1" maxlength = "1" placeholder="Valor dado 1">
+                <input type="hidden" name="hidDado1" value="<?php echo $dado1 ?>"><!--Nos sirve para comparar y validar los datos del user-->
+              </div>
+              <div class="form-group">
+                <label for="dado2">Dado2</label>
+                <input type="text" class="form-control input-lg" name="dado2" maxlength = "1" placeholder="Valor dado 2">
+                <input type="hidden" name="hidDado2" value="<?php echo $dado2 ?>"><!--Nos sirve para comparar y validar los datos del user-->
+              </div>
+              <div class="form-group">
+              
+              <label class="radio-inline">
+                <input type="radio" name="operacion" id="suma" checked="checked"  value="suma"> Suma
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="operacion" id="resta" value="resta"> Resta
+              </label>
+              
+              </div>
+              <button type="submit" class="btn btn-warning">Resultado</button>
+            </form>
           </div>
         </div>
      </div>
+    
 
      
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

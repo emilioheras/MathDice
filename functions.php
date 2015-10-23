@@ -20,7 +20,8 @@
 				 							 	                      
 	// Funciones:
 	
-	//La función construye un submenú dentro de un botón del menú superior de index.php.			 							 	                      
+	//La función construye un submenú dentro de un botón del menú superior de index.php.
+	//Los parámetros $string1, $string2 son claves del array asociativo $menu.
 	function escribeSubmenu ($menu, $string1, $string2, $language){
 	  
 	  foreach ($menu as $clave => $valor) {
