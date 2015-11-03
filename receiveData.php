@@ -1,22 +1,22 @@
 <?php
 
-    //Función que muestra si los datos introducidos en el formulario de los dados son correctos y muestra el resultado con mediante un
+    //Función que muestra si los datos introducidos en el formulario de los dados son correctos y muestra el resultado mediante un
     //componente de Bootstrap llamado jumbotron. Mostrará colores rojos si el usuario se ha equivocado y verdes si todo es correcto.
     function mensajeResultado(){
         
-        $resultadoCorrecto = false; // Si es false mostrará mensajes de error con elementos color rojo, si es true, mostrará elementos verdes
+        $resultadoCorrecto = false; // Si es false mostrará elementos color rojo, si es true, mostrará elementos verdes.
         
              // Validamos que los campos no estén vacíos.
              if($_POST['dado1'] === "" || $_POST['dado2'] === ""){
                  
                 echo utf8_decode("<h1>Upss...   <span class='label label-danger'>¡¡ERROR!!</span></h1>");
-                echo utf8_decode("<br><br><p>Uno, o los dos campos están vacíos. Deberías volver atras y completar correctamente los campos.</p>");
+                echo utf8_decode("<br><br><p>Se te olvidó rellenar alguno de los campos. Deberías volver atras y completar correctamente el formulario.</p>");
                 
             // Validamos con los campos hidden que los datos que introduce el user sean correctos.
             }elseif($_POST['dado1'] != $_POST['hidDado1'] || $_POST['dado2'] != $_POST['hidDado2']){
                 echo utf8_decode("<h1>Upss...   <span class='label label-danger'>¡¡ERROR!!</span></h1>");
-                echo utf8_decode("<br><br><p>El valor del dado 1 es: ".$_POST['hidDado1']." y has ingresado: ".$_POST['dado1']."</p>");
-                echo utf8_decode("<p>El valor del dado 2 es: ".$_POST['hidDado2']." y has ingresado: ".$_POST['dado2']."</p>");
+                echo utf8_decode("<br><br><p>El valor del primer dado es ".$_POST['hidDado1']." y has ingresado ".$_POST['dado1']."</p>");
+                echo utf8_decode("<p>El valor del segundo dado es ".$_POST['hidDado2']." y has ingresado ".$_POST['dado2']."</p>");
                 
             }else{
                 $resultadoCorrecto = true;
